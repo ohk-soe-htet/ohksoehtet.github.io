@@ -1,45 +1,49 @@
 import { Link, Outlet } from "@tanstack/react-router";
 import { ModeToggle } from "@/components/mode-toggle";
+import { Home, Briefcase, BookOpen } from "lucide-react";
 
 export function RootComponent() {
 	return (
-		<div className="min-h-screen bg-background text-foreground font-sans antialiased transition-colors duration-300">
-			<header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-				<div className="container mx-auto flex h-14 items-center justify-between px-4">
-					<div className="mr-4 hidden md:flex">
-						<Link
-							to="/"
-							className="mr-6 flex items-center space-x-2 font-bold">
-							<span>Ohk Soe Htet</span>
-						</Link>
-						<nav className="flex items-center space-x-6 text-sm font-medium">
-							<Link
-								to="/"
-								className="transition-colors hover:text-foreground/80 text-foreground/60 [&.active]:text-foreground">
-								Home
-							</Link>
-							<Link
-								to="/projects"
-								className="transition-colors hover:text-foreground/80 text-foreground/60 [&.active]:text-foreground">
-								Projects
-							</Link>
-							<Link
-								to="/blog"
-								className="transition-colors hover:text-foreground/80 text-foreground/60 [&.active]:text-foreground">
-								Blog
-							</Link>
-						</nav>
-					</div>
-					{/* Mobile Menu Placeholder - can be expanded later */}
-					<div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-						<div className="w-full flex-1 md:w-auto md:flex-none">
-							{/* Search or other items */}
-						</div>
+		<div className="min-h-screen bg-background text-foreground font-sans antialiased transition-colors duration-300 relative">
+			{/* Floating Navigation Dock */}
+			<div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 transform">
+				<nav className="flex items-center gap-2 rounded-full border bg-background/80 p-2 shadow-lg backdrop-blur-md supports-backdrop-filter:bg-background/60">
+					<Link
+						to="/"
+						className="group relative flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-muted [&.active]:bg-primary [&.active]:text-primary-foreground">
+						<Home className="h-5 w-5" />
+						<span className="absolute -top-10 left-1/2 -translate-x-1/2 rounded bg-primary px-2 py-1 text-xs text-primary-foreground opacity-0 transition-opacity group-hover:opacity-100">
+							Home
+						</span>
+					</Link>
+
+					<Link
+						to="/projects"
+						className="group relative flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-muted [&.active]:bg-primary [&.active]:text-primary-foreground">
+						<Briefcase className="h-5 w-5" />
+						<span className="absolute -top-10 left-1/2 -translate-x-1/2 rounded bg-primary px-2 py-1 text-xs text-primary-foreground opacity-0 transition-opacity group-hover:opacity-100">
+							Projects
+						</span>
+					</Link>
+
+					<Link
+						to="/blog"
+						className="group relative flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-muted [&.active]:bg-primary [&.active]:text-primary-foreground">
+						<BookOpen className="h-5 w-5" />
+						<span className="absolute -top-10 left-1/2 -translate-x-1/2 rounded bg-primary px-2 py-1 text-xs text-primary-foreground opacity-0 transition-opacity group-hover:opacity-100">
+							Blog
+						</span>
+					</Link>
+
+					<div className="mx-1 h-6 w-px bg-border" />
+
+					<div className="flex h-10 w-10 items-center justify-center">
 						<ModeToggle />
 					</div>
-				</div>
-			</header>
-			<main className="container mx-auto py-6 px-4">
+				</nav>
+			</div>
+
+			<main>
 				<Outlet />
 			</main>
 		</div>
