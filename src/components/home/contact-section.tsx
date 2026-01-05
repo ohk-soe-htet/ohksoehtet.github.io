@@ -5,8 +5,7 @@ import { Link } from "@tanstack/react-router";
 export function ContactSection() {
 	return (
 		<section className="py-24">
-			<div className="relative overflow-hidden p-8 md:p-16 text-center">
-				<div className="absolute inset-0 bg-linear-to-b from-transparent to-emerald-500/5 opacity-50 rounded-3xl" />
+			<div className="relative overflow-hidden p-8 md:p-16 text-center rounded-3xl border border-white/20 dark:border-white/10 bg-gradient-to-b from-emerald-500/5 to-transparent backdrop-blur-xl">
 				<div className="relative z-10">
 					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-6 text-emerald-950 dark:text-emerald-100">
 						Ready to build something amazing?

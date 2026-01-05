@@ -14,7 +14,7 @@ export function FeaturedProjectCard({ project, index }: ProjectCardProps) {
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: index * 0.1 }}
-			className="group relative grid grid-cols-1 gap-8 overflow-hidden rounded-3xl border bg-background/50 p-4 backdrop-blur-sm transition-all hover:bg-background/80 md:grid-cols-12 md:p-8">
+			className="group relative grid grid-cols-1 gap-8 overflow-hidden rounded-3xl border border-white/20 dark:border-white/10 bg-white/30 dark:bg-zinc-900/20 p-4 backdrop-blur-xl transition-all hover:bg-white/40 dark:hover:bg-zinc-900/30 md:grid-cols-12 md:p-8 shadow-sm">
 			{/* Image Section */}
 			<div className="relative col-span-1 overflow-hidden rounded-2xl md:col-span-7 h-64 md:h-full min-h-75">
 				<div className="absolute inset-0 bg-linear-to-t from-background/80 to-transparent z-10 md:hidden" />

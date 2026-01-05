@@ -45,20 +45,34 @@ export function IndexComponent() {
 			</section>
 
 			{/* Tech Stack Section */}
-			<section>
-				<h2 className="text-2xl font-bold mb-6 px-2">My Arsenal</h2>
-				<div className="h-50">
+			<section className="space-y-8">
+				<div className="text-center space-y-2">
+					<h2 className="text-3xl font-bold tracking-tight">
+						My Arsenal
+					</h2>
+					<p className="text-muted-foreground">
+						The tools I use to build digital products.
+					</p>
+				</div>
+				<div className="h-32">
 					<TechMarquee />
 				</div>
 			</section>
 
 			{/* Featured Projects Preview (Teaser) */}
-			<section>
-				<div className="flex items-center justify-between mb-6 px-2">
-					<h2 className="text-2xl font-bold">Featured Work</h2>
+			<section className="space-y-8">
+				<div className="flex items-end justify-between px-2">
+					<div className="space-y-2">
+						<h2 className="text-3xl font-bold tracking-tight">
+							Featured Work
+						</h2>
+						<p className="text-muted-foreground">
+							A selection of my recent projects.
+						</p>
+					</div>
 					<a
 						href="/projects"
-						className="text-sm text-muted-foreground hover:text-primary transition-colors">
+						className="text-sm font-medium text-primary hover:underline underline-offset-4 transition-colors mb-1">
 						View all projects →
 					</a>
 				</div>
