@@ -3,17 +3,9 @@ import { TechMarquee } from "@/components/home/tech-marquee";
 import { LocationCard } from "@/components/home/location-card";
 import { MindsetCard } from "@/components/home/mindset-card";
 import { ContactSection } from "@/components/home/contact-section";
+import { FeaturedProjectCard } from "@/components/projects/project-card";
+import { projects } from "@/data/projects";
 import { motion } from "framer-motion";
-
-const container = {
-	hidden: { opacity: 0 },
-	show: {
-		opacity: 1,
-		transition: {
-			staggerChildren: 0.1,
-		},
-	},
-};
 
 const item = {
 	hidden: { opacity: 0, y: 20 },
@@ -55,7 +47,7 @@ export function IndexComponent() {
 			{/* Tech Stack Section */}
 			<section>
 				<h2 className="text-2xl font-bold mb-6 px-2">My Arsenal</h2>
-				<div className="h-[200px]">
+				<div className="h-50">
 					<TechMarquee />
 				</div>
 			</section>
@@ -70,9 +62,17 @@ export function IndexComponent() {
 						View all projects →
 					</a>
 				</div>
-				{/* We will add a project preview card here later */}
-				<div className="rounded-xl border bg-muted/30 p-12 text-center text-muted-foreground">
-					Project Preview Component Coming Soon
+				<div className="space-y-8">
+					{projects
+						.filter((p) => p.featured)
+						.slice(0, 1)
+						.map((project, index) => (
+							<FeaturedProjectCard
+								key={project.id}
+								project={project}
+								index={index}
+							/>
+						))}
 				</div>
 			</section>
 

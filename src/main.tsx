@@ -12,6 +12,7 @@ import { RootComponent } from "@/routes/__root";
 import { IndexComponent } from "@/routes/index";
 import { ProjectsComponent } from "@/routes/projects";
 import { BlogComponent } from "@/routes/blog";
+import { BlogPostComponent } from "@/routes/blog-post";
 
 // 1. Create the root route
 const rootRoute = createRootRoute({
@@ -37,7 +38,18 @@ const blogRoute = createRoute({
 	component: BlogComponent,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute, projectsRoute, blogRoute]);
+const blogPostRoute = createRoute({
+	getParentRoute: () => rootRoute,
+	path: "/blog/$slug",
+	component: BlogPostComponent,
+});
+
+const routeTree = rootRoute.addChildren([
+	indexRoute,
+	projectsRoute,
+	blogRoute,
+	blogPostRoute,
+]);
 
 // 3. Create the router
 const router = createRouter({ routeTree });
