@@ -3,6 +3,7 @@ import { TechMarquee } from "@/components/home/tech-marquee";
 import { LocationCard } from "@/components/home/location-card";
 import { MindsetCard } from "@/components/home/mindset-card";
 import { ContactSection } from "@/components/home/contact-section";
+import { JourneySection } from "@/components/home/journey-section";
 import { FeaturedProjectCard } from "@/components/projects/project-card";
 import { projects } from "@/data/projects";
 import { motion } from "framer-motion";
@@ -89,6 +90,9 @@ export function IndexComponent() {
 						))}
 				</div>
 			</section>
+
+			{/* Journey Section */}
+			<JourneySection />
 
 			{/* Contact / Hire Section */}
 			<ContactSection />
